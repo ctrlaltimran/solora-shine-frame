@@ -38,11 +38,11 @@ function Index() {
         Good design doesn't shout. It glows quietly, and lets the work speak for itself.
       </Callout>
 
-      <Callout variant="light" label="Solora · Light">
+      <Callout variant="light" label="Solora Insight">
         The same idea, lifted into daylight — softer surface, same shimmer when you pass over it.
       </Callout>
 
-      <Callout variant="outline" label="Solora · Outline">
+      <Callout variant="outline" label="Solora Insight">
         Just a gradient rim around quiet space. The frame carries the brand; the message stays the focus.
       </Callout>
 

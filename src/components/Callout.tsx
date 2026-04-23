@@ -27,14 +27,14 @@ export function Callout({
     <aside className={`solora-callout ${variantClass} my-12 px-7 py-7 md:px-10 md:py-9`}>
       <div className="flex items-center gap-2.5 mb-4">
         <span
-          className="flex h-7 w-7 items-center justify-center"
+          className="flex h-10 w-10 items-center justify-center"
           style={{
             filter:
               "drop-shadow(0 0 10px color-mix(in oklch, var(--solora-violet) 45%, transparent))",
           }}
         >
           {icon ?? (
-            <img src={soloraLogo} alt="Solora" className="h-6 w-6 object-contain" />
+            <img src={soloraLogo} alt="Solora" className="h-10 w-10 object-contain" />
           )}
         </span>
         <span className="text-[0.7rem] uppercase tracking-[0.22em] font-medium text-foreground/55">
