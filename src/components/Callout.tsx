@@ -23,8 +23,6 @@ export function Callout({
         ? "solora-callout--outline"
         : "";
 
-  const isDark = variant === "dark";
-
   return (
     <aside className={`solora-callout ${variantClass} my-12 px-7 py-7 md:px-10 md:py-9`}>
       <div className="flex items-center gap-2.5 mb-4">
@@ -39,19 +37,11 @@ export function Callout({
             <img src={soloraLogo} alt="Solora" className="h-6 w-6 object-contain" />
           )}
         </span>
-        <span
-          className={`text-[0.7rem] uppercase tracking-[0.22em] font-medium ${
-            isDark ? "text-white/60" : "text-foreground/60"
-          }`}
-        >
+        <span className="text-[0.7rem] uppercase tracking-[0.22em] font-medium text-foreground/55">
           {label}
         </span>
       </div>
-      <p
-        className={`text-base md:text-lg leading-relaxed font-light ${
-          isDark ? "text-white/90" : "text-foreground/90"
-        }`}
-      >
+      <p className="text-base md:text-lg leading-relaxed font-light text-foreground/85">
         {children}
       </p>
     </aside>
