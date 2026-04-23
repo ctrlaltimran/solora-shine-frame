@@ -152,30 +152,43 @@
 }
 
 /* ============ Solora Callout ============ */
+/* Pastel sky -> lavender -> blush, with a faint architectural grid */
 .solora-callout {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--solora-ink);
+  border: 1px solid oklch(0.92 0.03 280 / 0.8);
   background:
-    radial-gradient(120% 140% at 0% 0%, color-mix(in oklch, var(--solora-violet) 18%, transparent), transparent 55%),
-    radial-gradient(120% 140% at 100% 100%, color-mix(in oklch, var(--solora-cyan) 14%, transparent), transparent 55%),
-    linear-gradient(180deg, oklch(0.13 0.03 280), oklch(0.09 0.025 280));
-  color: oklch(0.97 0.005 280);
+    /* faint grid lines */
+    linear-gradient(to right, oklch(1 0 0 / 0.55) 1px, transparent 1px) 0 0 / 38px 38px,
+    linear-gradient(to bottom, oklch(1 0 0 / 0.55) 1px, transparent 1px) 0 0 / 38px 38px,
+    /* soft color washes */
+    radial-gradient(80% 90% at 95% 15%, oklch(0.97 0.025 220 / 0.9), transparent 60%),
+    radial-gradient(70% 80% at 10% 95%, oklch(0.92 0.06 330 / 0.55), transparent 60%),
+    radial-gradient(90% 100% at 35% 50%, oklch(0.93 0.05 290 / 0.5), transparent 65%),
+    /* base pastel gradient */
+    linear-gradient(135deg,
+      oklch(0.96 0.04 240) 0%,
+      oklch(0.95 0.05 290) 45%,
+      oklch(0.95 0.06 330) 100%
+    );
+  color: var(--solora-ink);
   border-radius: calc(var(--radius) + 4px);
   isolation: isolate;
-  transition: border-color 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
 }
-/* soft inner edge */
+/* soft inner highlight */
 .solora-callout::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.08);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.7),
+    inset 0 -40px 60px -40px oklch(0.92 0.06 330 / 0.4);
   z-index: 1;
 }
-/* the gloss / product-reveal sweep */
+/* gloss / product-reveal sweep */
 .solora-callout::before {
   content: "";
   position: absolute;
@@ -187,25 +200,24 @@
   background: linear-gradient(
     115deg,
     transparent 0%,
-    color-mix(in oklch, var(--solora-cyan) 55%, transparent) 30%,
-    color-mix(in oklch, var(--solora-violet) 70%, transparent) 45%,
-    color-mix(in oklch, var(--solora-magenta) 75%, transparent) 55%,
-    color-mix(in oklch, var(--solora-blue) 55%, transparent) 70%,
+    color-mix(in oklch, var(--solora-cyan) 45%, transparent) 35%,
+    color-mix(in oklch, white 90%, transparent) 50%,
+    color-mix(in oklch, var(--solora-magenta) 45%, transparent) 65%,
     transparent 100%
   );
   filter: blur(18px);
   transform: translateX(-180%) skewX(-18deg);
   transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
   mix-blend-mode: screen;
-  opacity: 0.9;
+  opacity: 0.85;
   z-index: 2;
 }
 .solora-callout:hover {
-  border-color: color-mix(in oklch, var(--solora-violet) 60%, var(--solora-ink));
+  border-color: color-mix(in oklch, var(--solora-violet) 35%, oklch(0.92 0.03 280));
   box-shadow:
-    0 0 0 1px color-mix(in oklch, var(--solora-violet) 35%, transparent),
-    0 20px 60px -25px color-mix(in oklch, var(--solora-violet) 70%, transparent),
-    0 10px 40px -20px color-mix(in oklch, var(--solora-cyan) 50%, transparent);
+    0 0 0 1px color-mix(in oklch, var(--solora-violet) 18%, transparent),
+    0 24px 50px -25px color-mix(in oklch, var(--solora-violet) 35%, transparent),
+    0 10px 30px -20px color-mix(in oklch, var(--solora-cyan) 30%, transparent);
 }
 .solora-callout:hover::before {
   transform: translateX(320%) skewX(-18deg);
@@ -216,29 +228,28 @@
 }
 
 
-/* ---- Light variant ---- */
+
+/* ---- Light variant: paler, airier version of the same wash ---- */
 .solora-callout--light {
-  border: 1px solid var(--callout-border);
+  border: 1px solid oklch(0.94 0.02 280 / 0.9);
   background:
-    radial-gradient(120% 140% at 0% 0%, color-mix(in oklch, var(--solora-violet) 8%, transparent), transparent 55%),
-    radial-gradient(120% 140% at 100% 100%, color-mix(in oklch, var(--solora-cyan) 8%, transparent), transparent 55%),
-    var(--callout-bg);
+    linear-gradient(to right, oklch(1 0 0 / 0.7) 1px, transparent 1px) 0 0 / 44px 44px,
+    linear-gradient(to bottom, oklch(1 0 0 / 0.7) 1px, transparent 1px) 0 0 / 44px 44px,
+    radial-gradient(80% 90% at 95% 15%, oklch(0.985 0.015 220 / 0.9), transparent 60%),
+    radial-gradient(70% 80% at 10% 95%, oklch(0.97 0.03 330 / 0.55), transparent 60%),
+    linear-gradient(135deg,
+      oklch(0.985 0.015 240) 0%,
+      oklch(0.98 0.02 290) 50%,
+      oklch(0.98 0.025 330) 100%
+    );
   color: var(--solora-ink);
 }
 .solora-callout--light::after {
-  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.6);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.9);
 }
 .solora-callout--light::before {
-  opacity: 0.55;
-  mix-blend-mode: multiply;
+  opacity: 0.5;
   filter: blur(22px);
-}
-.solora-callout--light:hover {
-  border-color: color-mix(in oklch, var(--solora-violet) 50%, var(--callout-border));
-  box-shadow:
-    0 0 0 1px color-mix(in oklch, var(--solora-violet) 25%, transparent),
-    0 20px 50px -25px color-mix(in oklch, var(--solora-violet) 35%, transparent),
-    0 10px 30px -20px color-mix(in oklch, var(--solora-cyan) 30%, transparent);
 }
 
 /* ---- Outline (gradient rim) variant ---- */
