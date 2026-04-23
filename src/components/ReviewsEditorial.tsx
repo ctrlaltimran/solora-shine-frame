@@ -78,7 +78,7 @@ export function ReviewsEditorial({ clientName, intro, reviews }: ReviewsEditoria
               className="solora-review__wash pointer-events-none absolute inset-0 rounded-r-md opacity-0 transition-opacity duration-500"
             />
             <Quote
-              className="solora-review__quote absolute -left-[9px] top-2 h-4 w-4 text-foreground/30 bg-background transition-all duration-500 group-hover:text-[var(--solora-violet)] group-hover:-translate-y-0.5"
+              className="solora-review__quote absolute -left-[9px] top-2 h-4 w-4 text-[var(--solora-violet)] bg-background transition-all duration-500 group-hover:text-[var(--solora-magenta)] group-hover:-translate-y-0.5"
               strokeWidth={2.5}
             />
             <blockquote className="relative font-light italic text-foreground/85 text-base md:text-[1.05rem] leading-relaxed transition-colors duration-500 group-hover:text-foreground">
