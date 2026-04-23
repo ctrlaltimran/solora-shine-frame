@@ -60,7 +60,7 @@ export function GoogleReviews({
   return (
     <section className="my-10 rounded-2xl border border-border/70 bg-card/60 p-5 md:p-6 backdrop-blur-sm">
       {/* Header */}
-      <header className="flex items-center justify-between gap-4 pb-4 mb-4 border-b border-border/60">
+      <header className="flex flex-wrap items-center gap-x-4 gap-y-2 pb-4 mb-4 border-b border-border/60">
         <div className="flex items-center gap-3 min-w-0">
           <GoogleG className="h-6 w-6 shrink-0" />
           <div className="min-w-0">
