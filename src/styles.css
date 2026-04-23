@@ -162,14 +162,14 @@
     linear-gradient(to right, oklch(1 0 0 / 0.55) 1px, transparent 1px) 0 0 / 38px 38px,
     linear-gradient(to bottom, oklch(1 0 0 / 0.55) 1px, transparent 1px) 0 0 / 38px 38px,
     /* soft color washes */
-    radial-gradient(80% 90% at 95% 15%, oklch(0.97 0.025 220 / 0.9), transparent 60%),
-    radial-gradient(70% 80% at 10% 95%, oklch(0.92 0.06 330 / 0.55), transparent 60%),
-    radial-gradient(90% 100% at 35% 50%, oklch(0.93 0.05 290 / 0.5), transparent 65%),
+    radial-gradient(80% 90% at 95% 15%, oklch(0.975 0.021 220 / 0.77), transparent 60%),
+    radial-gradient(70% 80% at 10% 95%, oklch(0.93 0.051 330 / 0.47), transparent 60%),
+    radial-gradient(90% 100% at 35% 50%, oklch(0.94 0.043 290 / 0.43), transparent 65%),
     /* base pastel gradient */
     linear-gradient(135deg,
-      oklch(0.96 0.04 240) 0%,
-      oklch(0.95 0.05 290) 45%,
-      oklch(0.95 0.06 330) 100%
+      oklch(0.965 0.034 240) 0%,
+      oklch(0.96 0.043 290) 45%,
+      oklch(0.96 0.051 330) 100%
     );
   color: var(--solora-ink);
   border-radius: calc(var(--radius) + 4px);
