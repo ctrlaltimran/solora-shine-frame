@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Callout } from "@/components/Callout";
-import { GoogleReviews } from "@/components/GoogleReviews";
+
 import { ReviewsEditorial } from "@/components/ReviewsEditorial";
 
 export const Route = createFileRoute("/")({
