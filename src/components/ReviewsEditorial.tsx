@@ -45,7 +45,7 @@ export function ReviewsEditorial({ clientName, intro, reviews }: ReviewsEditoria
         <div className="h-px flex-1 bg-border/70" />
         <div className="flex items-center gap-2">
           <GoogleG className="h-3.5 w-3.5" />
-          <span className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">
+          <span className="whitespace-nowrap text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">
             What people are saying on Google
           </span>
         </div>
