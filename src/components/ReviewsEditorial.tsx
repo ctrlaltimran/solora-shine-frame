@@ -61,17 +61,33 @@ export function ReviewsEditorial({ clientName, intro, reviews }: ReviewsEditoria
         {reviews.map((r, i) => (
           <figure
             key={i}
-            className="relative pl-6 md:pl-8 border-l-2 border-foreground/10"
+            className="solora-review group relative pl-6 md:pl-8 py-2 -my-2 pr-4 rounded-r-md cursor-default"
           >
+            {/* animated left rule */}
+            <span
+              aria-hidden
+              className="absolute left-0 top-0 bottom-0 w-px bg-foreground/10"
+            />
+            <span
+              aria-hidden
+              className="solora-review__rule absolute left-0 top-0 w-px bg-gradient-to-b from-[var(--solora-cyan)] via-[var(--solora-violet)] to-[var(--solora-magenta)]"
+            />
+            {/* soft wash */}
+            <span
+              aria-hidden
+              className="solora-review__wash pointer-events-none absolute inset-0 rounded-r-md opacity-0 transition-opacity duration-500"
+            />
             <Quote
-              className="absolute -left-[9px] top-0 h-4 w-4 text-foreground/30 bg-background"
+              className="solora-review__quote absolute -left-[9px] top-2 h-4 w-4 text-foreground/30 bg-background transition-all duration-500 group-hover:text-[var(--solora-violet)] group-hover:-translate-y-0.5"
               strokeWidth={2.5}
             />
-            <blockquote className="font-light italic text-foreground/85 text-base md:text-[1.05rem] leading-relaxed">
+            <blockquote className="relative font-light italic text-foreground/85 text-base md:text-[1.05rem] leading-relaxed transition-colors duration-500 group-hover:text-foreground">
               &ldquo;{r.text}&rdquo;
             </blockquote>
-            <figcaption className="mt-2.5 flex items-center gap-2 text-xs text-muted-foreground">
-              <span className="font-medium text-foreground/70 not-italic">— {r.author}</span>
+            <figcaption className="relative mt-2.5 flex items-center gap-2 text-xs text-muted-foreground">
+              <span className="font-medium text-foreground/70 not-italic transition-colors duration-500 group-hover:text-foreground">
+                — {r.author}
+              </span>
               <span className="text-foreground/30">·</span>
               <Stars rating={r.rating} />
               {r.date && (

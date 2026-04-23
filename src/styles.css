@@ -272,3 +272,23 @@
     0 20px 50px -25px color-mix(in oklch, var(--solora-violet) 45%, transparent),
     0 10px 30px -20px color-mix(in oklch, var(--solora-cyan) 40%, transparent);
 }
+
+/* ============ Solora Review (editorial) ============ */
+.solora-review__rule {
+  height: 0;
+  transition: height 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.solora-review:hover .solora-review__rule {
+  height: 100%;
+}
+.solora-review__wash {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--solora-violet) 6%, transparent) 0%,
+    color-mix(in oklch, var(--solora-cyan) 4%, transparent) 50%,
+    transparent 100%
+  );
+}
+.solora-review:hover .solora-review__wash {
+  opacity: 1;
+}
