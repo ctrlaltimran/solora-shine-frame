@@ -148,3 +148,44 @@
     color: var(--color-foreground);
   }
 }
+
+/* ============ Solora Callout ============ */
+.solora-callout {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--callout-border);
+  background-color: var(--callout-bg);
+  border-radius: calc(var(--radius) + 2px);
+  isolation: isolate;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.solora-callout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    color-mix(in oklch, var(--solora-glow) 55%, transparent) 48%,
+    color-mix(in oklch, white 80%, transparent) 50%,
+    color-mix(in oklch, var(--solora-glow) 55%, transparent) 52%,
+    transparent 70%
+  );
+  transform: translateX(-110%);
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+.solora-callout:hover {
+  border-color: color-mix(in oklch, var(--solora-sun) 60%, var(--callout-border));
+  box-shadow: 0 0 0 1px color-mix(in oklch, var(--solora-sun) 25%, transparent),
+    0 10px 40px -20px color-mix(in oklch, var(--solora-sun) 60%, transparent);
+}
+.solora-callout:hover::before {
+  transform: translateX(110%);
+}
+.solora-callout > * {
+  position: relative;
+  z-index: 2;
+}
