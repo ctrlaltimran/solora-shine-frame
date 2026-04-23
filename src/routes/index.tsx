@@ -81,7 +81,7 @@ function Index() {
       />
 
       <ReviewsEditorial
-        clientName="Glow That Face Up"
+        clientName="Northwind Dental Studio"
         reviews={[
           {
             author: "Sarah M.",
