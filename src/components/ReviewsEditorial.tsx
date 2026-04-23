@@ -52,9 +52,18 @@ export function ReviewsEditorial({ clientName, intro, reviews }: ReviewsEditoria
         <div className="h-px flex-1 bg-border/70" />
       </div>
 
-      <p className="text-center text-sm text-muted-foreground mb-8">
-        {intro ?? <>Recent reviews left for <span className="text-foreground/80 font-medium">{clientName}</span></>}
-      </p>
+      <div className="text-center mb-8">
+        {intro ? (
+          <p className="text-sm text-muted-foreground">{intro}</p>
+        ) : (
+          <>
+            <p className="text-sm text-muted-foreground">about our client</p>
+            <p className="text-base md:text-lg font-medium text-foreground mt-1">
+              {clientName}
+            </p>
+          </>
+        )}
+      </div>
 
       {/* Stacked editorial quotes */}
       <div className="space-y-7">
