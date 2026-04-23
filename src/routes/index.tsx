@@ -38,6 +38,14 @@ function Index() {
         Good design doesn't shout. It glows quietly, and lets the work speak for itself.
       </Callout>
 
+      <Callout variant="light" label="Solora · Light">
+        The same idea, lifted into daylight — softer surface, same shimmer when you pass over it.
+      </Callout>
+
+      <Callout variant="outline" label="Solora · Outline">
+        Just a gradient rim around quiet space. The frame carries the brand; the message stays the focus.
+      </Callout>
+
       <p className="text-base leading-relaxed text-muted-foreground mb-6">
         That principle shows up in our type stack, our spacing rhythm, and especially in
         how we treat color — never decorative for its own sake, always doing a small but
