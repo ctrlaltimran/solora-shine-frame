@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Callout } from "@/components/Callout";
+import { GoogleReviews } from "@/components/GoogleReviews";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -45,6 +46,38 @@ function Index() {
       <Callout variant="outline" label="Solora Insight">
         Just a gradient rim around quiet space. The frame carries the brand; the message stays the focus.
       </Callout>
+
+      <GoogleReviews
+        clientName="Northwind Dental Studio"
+        overallRating={4.9}
+        totalReviews={184}
+        reviews={[
+          {
+            author: "Sarah M.",
+            rating: 5,
+            date: "2 weeks ago",
+            text: "Absolutely the best dental experience I've ever had. The team is warm, professional, and the office feels more like a spa than a clinic.",
+          },
+          {
+            author: "James T.",
+            rating: 5,
+            date: "1 month ago",
+            text: "Dr. Patel walked me through every step of my treatment. No pressure, just honest advice. Highly recommend to anyone nervous about the dentist.",
+          },
+          {
+            author: "Priya R.",
+            rating: 5,
+            date: "1 month ago",
+            text: "Booked a last-minute cleaning and they fit me in the same day. Front desk was lovely and the hygienist did a phenomenal job.",
+          },
+          {
+            author: "Daniel K.",
+            rating: 4,
+            date: "2 months ago",
+            text: "Great care and modern equipment. Only wish parking was a little easier, but the experience inside more than makes up for it.",
+          },
+        ]}
+      />
 
       <p className="text-base leading-relaxed text-muted-foreground mb-6">
         That principle shows up in our type stack, our spacing rhythm, and especially in
