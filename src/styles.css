@@ -247,10 +247,7 @@
 .solora-callout--light::after {
   box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.9);
 }
-.solora-callout--light::before {
-  opacity: 0.5;
-  filter: blur(22px);
-}
+/* light variant uses the same screen-blended wipe as the base */
 
 /* ---- Outline (gradient rim) variant ---- */
 .solora-callout--outline {
@@ -268,11 +265,7 @@
 .solora-callout--outline::after {
   box-shadow: none;
 }
-.solora-callout--outline::before {
-  opacity: 0.4;
-  mix-blend-mode: multiply;
-  filter: blur(24px);
-}
+/* outline variant uses the same screen-blended wipe as the base */
 .solora-callout--outline:hover {
   box-shadow:
     0 0 0 2px color-mix(in oklch, var(--solora-violet) 25%, transparent),
