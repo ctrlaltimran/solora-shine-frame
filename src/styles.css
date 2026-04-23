@@ -63,8 +63,14 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --background: oklch(0.995 0.005 90);
+  --foreground: oklch(0.18 0.02 60);
+  /* Solora brand */
+  --solora-sun: oklch(0.78 0.16 70);
+  --solora-glow: oklch(0.92 0.12 85);
+  --solora-ink: oklch(0.22 0.02 60);
+  --callout-border: oklch(0.88 0.03 75);
+  --callout-bg: oklch(0.985 0.012 85);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
@@ -141,4 +147,45 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+/* ============ Solora Callout ============ */
+.solora-callout {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--callout-border);
+  background-color: var(--callout-bg);
+  border-radius: calc(var(--radius) + 2px);
+  isolation: isolate;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.solora-callout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    color-mix(in oklch, var(--solora-glow) 55%, transparent) 48%,
+    color-mix(in oklch, white 80%, transparent) 50%,
+    color-mix(in oklch, var(--solora-glow) 55%, transparent) 52%,
+    transparent 70%
+  );
+  transform: translateX(-110%);
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+.solora-callout:hover {
+  border-color: color-mix(in oklch, var(--solora-sun) 60%, var(--callout-border));
+  box-shadow: 0 0 0 1px color-mix(in oklch, var(--solora-sun) 25%, transparent),
+    0 10px 40px -20px color-mix(in oklch, var(--solora-sun) 60%, transparent);
+}
+.solora-callout:hover::before {
+  transform: translateX(110%);
+}
+.solora-callout > * {
+  position: relative;
+  z-index: 2;
 }
