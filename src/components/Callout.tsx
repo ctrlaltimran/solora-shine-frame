@@ -24,8 +24,8 @@ export function Callout({
         : "";
 
   return (
-    <aside className={`solora-callout ${variantClass} my-12 px-7 py-7 md:px-10 md:py-9`}>
-      <div className="flex items-center gap-2.5 mb-4">
+    <aside className={`solora-callout ${variantClass} my-10 px-7 py-5 md:px-10 md:py-6`}>
+      <div className="flex items-center gap-2.5 mb-3">
         <span
           className="flex h-10 w-10 items-center justify-center"
           style={{
