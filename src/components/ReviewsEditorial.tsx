@@ -53,7 +53,7 @@ export function ReviewsEditorial({ clientName, intro, reviews }: ReviewsEditoria
       </div>
 
       <p className="text-center text-sm text-muted-foreground mb-8">
-        {intro ?? <>Recent reviews left for <span className="text-foreground/80 font-medium">{clientName}</span></>}
+        {intro ?? <>Recent reviews left for <span className="text-foreground/80 font-medium">{clientName}</span> on Google</>}
       </p>
 
       {/* Stacked editorial quotes */}
