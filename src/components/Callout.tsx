@@ -1,4 +1,4 @@
-import { Sun } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import type { ReactNode } from "react";
 
 interface CalloutProps {
@@ -7,18 +7,25 @@ interface CalloutProps {
   icon?: ReactNode;
 }
 
-export function Callout({ children, label = "Note", icon }: CalloutProps) {
+export function Callout({ children, label = "Solora Insight", icon }: CalloutProps) {
   return (
-    <aside className="solora-callout my-10 px-7 py-6 md:px-9 md:py-7">
-      <div className="flex items-center gap-2 mb-3">
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--solora-glow)]/40 text-[var(--solora-ink)]">
-          {icon ?? <Sun className="h-3.5 w-3.5" strokeWidth={2.25} />}
+    <aside className="solora-callout my-12 px-7 py-7 md:px-10 md:py-9">
+      <div className="flex items-center gap-2.5 mb-4">
+        <span
+          className="flex h-7 w-7 items-center justify-center rounded-full"
+          style={{
+            background:
+              "linear-gradient(135deg, var(--solora-cyan), var(--solora-violet) 60%, var(--solora-magenta))",
+            boxShadow: "0 0 18px color-mix(in oklch, var(--solora-violet) 60%, transparent)",
+          }}
+        >
+          {icon ?? <Sparkles className="h-3.5 w-3.5 text-white" strokeWidth={2.25} />}
         </span>
-        <span className="text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground font-medium">
+        <span className="text-[0.7rem] uppercase tracking-[0.22em] font-medium text-white/60">
           {label}
         </span>
       </div>
-      <p className="text-base md:text-lg leading-relaxed text-foreground font-light">
+      <p className="text-base md:text-lg leading-relaxed font-light text-white/90">
         {children}
       </p>
     </aside>
