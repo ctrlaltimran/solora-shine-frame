@@ -50,25 +50,31 @@ function Index() {
 
 
       <ReviewsEditorial
-        clientName="Northwind Dental Studio"
+        clientName="Glow That Face Up"
         reviews={[
           {
-            author: "Sarah M.",
+            author: "M.R.",
             rating: 5,
             date: "2 weeks ago",
-            text: "Absolutely the best dental experience I've ever had. The team is warm, professional, and the office feels more like a spa than a clinic.",
+            text: "My skin is glowing! First-time facial ever and I am hooked. Vivian is an absolute pro.",
           },
           {
-            author: "James T.",
+            author: "S.K.",
             rating: 5,
             date: "1 month ago",
-            text: "Dr. Patel walked me through every step of my treatment. No pressure, just honest advice.",
+            text: "Hawraa is the first person I ever trust with my face. She helped transform my face. The absolute best person to go for a facial.",
           },
           {
-            author: "Priya R.",
+            author: "J.L.",
             rating: 5,
             date: "1 month ago",
-            text: "Booked a last-minute cleaning and they fit me in the same day. The hygienist did a phenomenal job.",
+            text: "Honestly the BEST facial experience I've ever had. From the moment I walked into Glow That Face Up, everything felt clean, calm, and super welcoming. Aaliyah was incredibly sweet and professional.",
+          },
+          {
+            author: "A.T.",
+            rating: 5,
+            date: "2 months ago",
+            text: "I absolutely love coming here. Dalia is extremely knowledgeable and truly takes the time to understand your skin before doing anything.",
           },
         ]}
       />
