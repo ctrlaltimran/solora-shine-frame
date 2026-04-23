@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Callout } from "@/components/Callout";
 import { GoogleReviews } from "@/components/GoogleReviews";
+import { ReviewsEditorial } from "@/components/ReviewsEditorial";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -75,6 +76,30 @@ function Index() {
             rating: 4,
             date: "2 months ago",
             text: "Great care and modern equipment. Only wish parking was a little easier, but the experience inside more than makes up for it.",
+          },
+        ]}
+      />
+
+      <ReviewsEditorial
+        clientName="Northwind Dental Studio"
+        reviews={[
+          {
+            author: "Sarah M.",
+            rating: 5,
+            date: "2 weeks ago",
+            text: "Absolutely the best dental experience I've ever had. The team is warm, professional, and the office feels more like a spa than a clinic.",
+          },
+          {
+            author: "James T.",
+            rating: 5,
+            date: "1 month ago",
+            text: "Dr. Patel walked me through every step of my treatment. No pressure, just honest advice.",
+          },
+          {
+            author: "Priya R.",
+            rating: 5,
+            date: "1 month ago",
+            text: "Booked a last-minute cleaning and they fit me in the same day. The hygienist did a phenomenal job.",
           },
         ]}
       />
