@@ -215,3 +215,56 @@
   z-index: 3;
 }
 
+
+/* ---- Light variant ---- */
+.solora-callout--light {
+  border: 1px solid var(--callout-border);
+  background:
+    radial-gradient(120% 140% at 0% 0%, color-mix(in oklch, var(--solora-violet) 8%, transparent), transparent 55%),
+    radial-gradient(120% 140% at 100% 100%, color-mix(in oklch, var(--solora-cyan) 8%, transparent), transparent 55%),
+    var(--callout-bg);
+  color: var(--solora-ink);
+}
+.solora-callout--light::after {
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.6);
+}
+.solora-callout--light::before {
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  filter: blur(22px);
+}
+.solora-callout--light:hover {
+  border-color: color-mix(in oklch, var(--solora-violet) 50%, var(--callout-border));
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--solora-violet) 25%, transparent),
+    0 20px 50px -25px color-mix(in oklch, var(--solora-violet) 35%, transparent),
+    0 10px 30px -20px color-mix(in oklch, var(--solora-cyan) 30%, transparent);
+}
+
+/* ---- Outline (gradient rim) variant ---- */
+.solora-callout--outline {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--background), var(--background)) padding-box,
+    linear-gradient(135deg,
+      var(--solora-cyan),
+      var(--solora-violet) 50%,
+      var(--solora-magenta)
+    ) border-box;
+  color: var(--solora-ink);
+  border-width: 1.5px;
+}
+.solora-callout--outline::after {
+  box-shadow: none;
+}
+.solora-callout--outline::before {
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  filter: blur(24px);
+}
+.solora-callout--outline:hover {
+  box-shadow:
+    0 0 0 2px color-mix(in oklch, var(--solora-violet) 25%, transparent),
+    0 20px 50px -25px color-mix(in oklch, var(--solora-violet) 45%, transparent),
+    0 10px 30px -20px color-mix(in oklch, var(--solora-cyan) 40%, transparent);
+}
