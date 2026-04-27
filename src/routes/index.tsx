@@ -45,7 +45,7 @@ function Index() {
       </Callout>
 
       <Callout variant="outline" label="Solora Insight">
-        Just a gradient rim around quiet space. The frame carries the brand; the message stays the focus.
+        Just a gradient rim around quiet space — the frame carries the brand.
       </Callout>
 
 
