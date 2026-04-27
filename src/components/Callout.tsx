@@ -24,7 +24,7 @@ export function Callout({
         : "";
 
   return (
-    <aside className={`solora-callout ${variantClass} my-8 px-5 py-4 md:my-10 md:px-10 md:py-6`}>
+    <aside className={`solora-callout ${variantClass} my-8 px-5 py-4 md:my-10 md:px-10 md:py-6`} style={{ WebkitTapHighlightColor: "transparent" }}>
       <div className="flex items-center gap-2 mb-2 md:gap-2.5 md:mb-3">
         <span
           className="flex h-7 w-7 md:h-10 md:w-10 items-center justify-center"
