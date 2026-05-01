@@ -273,6 +273,20 @@
     0 10px 30px -20px color-mix(in oklch, var(--solora-cyan) 40%, transparent);
 }
 
+/* ============ Solora QuickWins ============ */
+.solora-quickwin-number {
+  background: linear-gradient(
+    135deg,
+    var(--solora-blue) 0%,
+    var(--solora-violet) 45%,
+    var(--solora-magenta) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
 /* ============ Solora Review (editorial) ============ */
 .solora-review__rule {
   height: 0;
