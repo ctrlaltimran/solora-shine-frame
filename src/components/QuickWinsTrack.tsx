@@ -27,38 +27,38 @@ export function QuickWinsTrack({ clientName, eyebrow, wins }: QuickWinsTrackProp
       </div>
 
       {/* Track */}
-      <div className="solora-track relative px-2 md:px-4 py-6 md:py-8">
-        {/* The rail (horizontal on md+, vertical on mobile) */}
+      <div className="solora-track relative px-1 md:px-4 py-6 md:py-8">
+        {/* Horizontal rail at all breakpoints */}
         <span className="solora-track__rail" aria-hidden />
 
-        <ol className="relative grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
+        <ol className="relative grid grid-cols-4 gap-2 md:gap-4">
           {wins.slice(0, 4).map((w, i) => {
             const Icon = w.icon ?? DEFAULT_ICONS[i % DEFAULT_ICONS.length];
             return (
               <li
                 key={i}
-                className="solora-track__node group relative flex md:flex-col items-start md:items-center gap-4 md:gap-3 text-left md:text-center"
+                className="solora-track__node group relative flex flex-col items-center gap-2 md:gap-3 text-center"
                 style={{ WebkitTapHighlightColor: "transparent" }}
               >
                 {/* Node marker */}
-                <span className="solora-track__marker relative z-10 flex items-center justify-center h-11 w-11 md:h-12 md:w-12 rounded-full shrink-0">
-                  <Icon className="h-4 w-4 md:h-[18px] md:w-[18px]" strokeWidth={1.75} />
+                <span className="solora-track__marker relative z-10 flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full shrink-0">
+                  <Icon className="h-[15px] w-[15px] md:h-[18px] md:w-[18px]" strokeWidth={1.75} />
                   <span className="solora-track__pulse" aria-hidden />
                 </span>
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col md:items-center min-w-0">
-                  <div className="flex items-baseline gap-1.5 md:justify-center">
-                    <span className="solora-track__num text-2xl md:text-[1.7rem] font-light tracking-tight leading-none text-foreground">
+                <div className="relative z-10 flex flex-col items-center min-w-0">
+                  <div className="flex items-baseline gap-1 md:gap-1.5 justify-center">
+                    <span className="solora-track__num text-lg md:text-[1.7rem] font-light tracking-tight leading-none text-foreground">
                       {w.value}
                     </span>
                     {w.suffix && (
-                      <span className="text-xs md:text-sm font-light text-foreground/55">
+                      <span className="text-[0.65rem] md:text-sm font-light text-foreground/55">
                         {w.suffix}
                       </span>
                     )}
                   </div>
-                  <p className="mt-2 text-xs md:text-[0.78rem] leading-snug text-foreground/70 font-light max-w-[22ch]">
+                  <p className="mt-1.5 md:mt-2 text-[0.65rem] md:text-[0.78rem] leading-snug text-foreground/70 font-light max-w-[14ch] md:max-w-[22ch]">
                     {w.label}
                   </p>
                 </div>

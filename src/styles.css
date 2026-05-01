@@ -716,15 +716,16 @@
 .solora-track {
   position: relative;
 }
-/* Mobile: vertical rail on the left of markers (markers are h-11 = 2.75rem, half = 1.375rem; plus px-2 padding-left of 0.5rem = 1.875rem) */
+/* Horizontal rail across all breakpoints */
 .solora-track__rail {
   position: absolute;
-  left: calc(0.5rem + 1.375rem - 1px);
-  top: 1.5rem;
-  bottom: 1.5rem;
-  width: 2px;
+  left: 12%;
+  right: 12%;
+  top: calc(1.5rem + 1.25rem); /* py-6 (1.5rem) + half marker (1.25rem on mobile) */
+  width: auto;
+  height: 2px;
   background: linear-gradient(
-    180deg,
+    90deg,
     color-mix(in oklch, var(--solora-cyan) 60%, transparent) 0%,
     color-mix(in oklch, var(--solora-violet) 70%, transparent) 50%,
     color-mix(in oklch, var(--solora-magenta) 60%, transparent) 100%
@@ -734,18 +735,7 @@
 }
 @media (min-width: 768px) {
   .solora-track__rail {
-    left: 12%;
-    right: 12%;
-    top: calc(1.5rem + 1.5rem); /* py-8 (2rem) + half marker (1.5rem) */
-    bottom: auto;
-    width: auto;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      color-mix(in oklch, var(--solora-cyan) 60%, transparent) 0%,
-      color-mix(in oklch, var(--solora-violet) 70%, transparent) 50%,
-      color-mix(in oklch, var(--solora-magenta) 60%, transparent) 100%
-    );
+    top: calc(2rem + 1.5rem); /* py-8 (2rem) + half marker (1.5rem) */
   }
 }
 /* Marker (the dot on the rail) */
