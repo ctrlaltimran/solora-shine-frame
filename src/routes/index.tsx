@@ -38,6 +38,16 @@ function Index() {
           { value: "13", label: "Past patients rebooked", icon: CalendarCheck },
         ]}
       />
+
+      <QuickWinsList
+        clientName="Glow That Face Up"
+        wins={[
+          { value: "#1", label: 'Ranked #1 on Google for "Facial Dearborn"', icon: Trophy },
+          { value: "5.0", suffix: "/ 5.0", label: "Perfect Google star rating", icon: Star },
+          { value: "100+", label: "New Google reviews in 40 days", icon: MessageSquareQuote },
+          { value: "13", label: "Past patients rebooked", icon: CalendarCheck },
+        ]}
+      />
       <p className="text-base leading-relaxed text-muted-foreground mb-6">
         At Solora, we believe interfaces should feel as effortless as morning light spilling
         across a quiet room. Every component we ship is shaped around restraint — fewer
