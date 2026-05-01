@@ -398,12 +398,7 @@
   bottom: 12%;
   width: 2px;
   border-radius: 2px;
-  background: linear-gradient(
-    180deg,
-    var(--solora-cyan),
-    var(--solora-violet) 50%,
-    var(--solora-magenta)
-  );
+  background: var(--solora-violet);
   transform: scaleY(0);
   transform-origin: center;
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
