@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Callout } from "@/components/Callout";
 import { QuickWins } from "@/components/QuickWins";
 import { QuickWinsList } from "@/components/QuickWinsList";
+import { QuickWinsBento } from "@/components/QuickWinsBento";
 import { Trophy, Star, MessageSquareQuote, CalendarCheck } from "lucide-react";
 
 import { ReviewsEditorial } from "@/components/ReviewsEditorial";
@@ -40,6 +41,16 @@ function Index() {
       />
 
       <QuickWinsList
+        clientName="Glow That Face Up"
+        wins={[
+          { value: "#1", label: 'Ranked #1 on Google for "Facial Dearborn"', icon: Trophy },
+          { value: "5.0", suffix: "/ 5.0", label: "Perfect Google star rating", icon: Star },
+          { value: "100+", label: "New Google reviews in 40 days", icon: MessageSquareQuote },
+          { value: "13", label: "Past patients rebooked", icon: CalendarCheck },
+        ]}
+      />
+
+      <QuickWinsBento
         clientName="Glow That Face Up"
         wins={[
           { value: "#1", label: 'Ranked #1 on Google for "Facial Dearborn"', icon: Trophy },

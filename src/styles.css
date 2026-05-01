@@ -453,3 +453,114 @@
   border-color: color-mix(in oklch, var(--solora-violet) 40%, var(--border));
   color: var(--solora-violet);
 }
+
+/* ============ Solora QuickWins Bento (variant) ============ */
+@property --solora-bento-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes solora-bento-spin {
+  to { --solora-bento-angle: 360deg; }
+}
+.solora-bento {
+  position: relative;
+  isolation: isolate;
+  background: oklch(0.99 0.005 280);
+  border: 1px solid transparent;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
+}
+/* gradient ring border (conic, animates on hover) */
+.solora-bento__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--solora-bento-angle),
+    color-mix(in oklch, var(--solora-cyan) 40%, transparent),
+    color-mix(in oklch, var(--solora-violet) 60%, transparent),
+    color-mix(in oklch, var(--solora-magenta) 50%, transparent),
+    color-mix(in oklch, var(--solora-cyan) 40%, transparent)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0.45;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+}
+.solora-bento:hover .solora-bento__ring {
+  opacity: 1;
+  animation: solora-bento-spin 6s linear infinite;
+}
+/* inner soft surface */
+.solora-bento__surface {
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(var(--radius) + 4px);
+  background:
+    radial-gradient(120% 100% at 100% 0%, oklch(0.97 0.02 220 / 0.6), transparent 60%),
+    radial-gradient(100% 100% at 0% 100%, oklch(0.96 0.03 330 / 0.35), transparent 60%),
+    linear-gradient(160deg, oklch(0.995 0.005 240) 0%, oklch(0.985 0.012 300) 100%);
+  z-index: 0;
+}
+/* corner glow that grows on hover */
+.solora-bento__glow {
+  position: absolute;
+  bottom: -40%;
+  right: -20%;
+  width: 70%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklch, var(--solora-violet) 22%, transparent) 0%,
+    transparent 60%
+  );
+  filter: blur(20px);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+  pointer-events: none;
+}
+.solora-bento:hover .solora-bento__glow {
+  opacity: 1;
+  transform: scale(1);
+}
+.solora-bento:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 20px 40px -25px color-mix(in oklch, var(--solora-violet) 35%, transparent),
+    0 8px 20px -16px color-mix(in oklch, var(--solora-cyan) 30%, transparent);
+}
+/* icon chip */
+.solora-bento__icon {
+  background: oklch(1 0 0 / 0.7);
+  border: 1px solid oklch(0.92 0.02 280 / 0.7);
+  color: var(--solora-violet);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.4s ease, color 0.4s ease;
+}
+.solora-bento:hover .solora-bento__icon {
+  transform: rotate(-6deg);
+  background: linear-gradient(135deg,
+    color-mix(in oklch, var(--solora-cyan) 18%, white),
+    color-mix(in oklch, var(--solora-violet) 18%, white)
+  );
+}
+.solora-bento__arrow {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s ease;
+}
+.solora-bento:hover .solora-bento__arrow {
+  transform: translate(3px, -3px);
+  color: var(--solora-violet);
+}
+.solora-bento__num {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  transition: color 0.4s ease;
+}
