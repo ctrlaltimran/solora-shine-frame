@@ -3,6 +3,7 @@ import { Callout } from "@/components/Callout";
 import { QuickWins } from "@/components/QuickWins";
 import { QuickWinsList } from "@/components/QuickWinsList";
 import { QuickWinsBento } from "@/components/QuickWinsBento";
+import { QuickWinsTrack } from "@/components/QuickWinsTrack";
 import { Trophy, Star, MessageSquareQuote, CalendarCheck } from "lucide-react";
 
 import { ReviewsEditorial } from "@/components/ReviewsEditorial";
