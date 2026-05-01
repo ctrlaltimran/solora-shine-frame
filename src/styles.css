@@ -639,3 +639,47 @@
 .solora-track__node:hover .solora-track__num {
   color: var(--solora-violet);
 }
+
+/* ============ Solora Review Cards (variant) ============ */
+.solora-reviewcard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.5s ease, box-shadow 0.5s ease;
+}
+.solora-reviewcard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 80% at 100% 0%,
+    color-mix(in oklch, var(--solora-violet) 8%, transparent),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 0;
+}
+.solora-reviewcard > * {
+  position: relative;
+  z-index: 1;
+}
+.solora-reviewcard:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklch, var(--solora-violet) 25%, var(--border));
+  box-shadow:
+    0 14px 30px -22px color-mix(in oklch, var(--solora-violet) 30%, transparent),
+    0 6px 16px -14px color-mix(in oklch, var(--solora-cyan) 25%, transparent);
+}
+.solora-reviewcard:hover::before {
+  opacity: 1;
+}
+.solora-reviewcard__avatar {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.solora-reviewcard:hover .solora-reviewcard__avatar {
+  transform: scale(1.06) rotate(-3deg);
+}
