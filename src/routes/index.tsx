@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Callout } from "@/components/Callout";
+import { CalloutTicket } from "@/components/CalloutTicket";
 import { QuickWins } from "@/components/QuickWins";
 import { QuickWinsList } from "@/components/QuickWinsList";
 import { QuickWinsBento } from "@/components/QuickWinsBento";
@@ -75,6 +76,10 @@ function Index() {
       <Callout variant="outline" label="Solora Insight">
         Just a gradient rim around quiet space — the frame carries the brand.
       </Callout>
+
+      <CalloutTicket label="Solora Insight" attribution="Studio Note">
+        Treat every page like a ticket stub — one strong edge, one held thought, and just enough white space to breathe.
+      </CalloutTicket>
 
       {/* ============ Google Reviews ============ */}
       <SectionHeader title="Google Review Options" />
