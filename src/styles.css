@@ -371,3 +371,85 @@
 .solora-review:hover .solora-review__wash {
   opacity: 1;
 }
+
+/* ============ Solora QuickWins List (variant) ============ */
+.solora-winlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.solora-winlist__row {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  transition: padding 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.solora-winlist__row + .solora-winlist__row {
+  border-top: 1px solid color-mix(in oklch, var(--border) 60%, transparent);
+}
+/* left accent bar */
+.solora-winlist__row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--solora-cyan),
+    var(--solora-violet) 50%,
+    var(--solora-magenta)
+  );
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+.solora-winlist__row:hover::before {
+  transform: scaleY(1);
+}
+/* hover wash sweep */
+.solora-winlist__wash {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--solora-cyan) 10%, transparent) 0%,
+    color-mix(in oklch, var(--solora-violet) 8%, transparent) 50%,
+    transparent 100%
+  );
+  transform: translateX(-30%);
+  transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.solora-winlist__row:hover .solora-winlist__wash {
+  opacity: 1;
+  transform: translateX(0);
+}
+.solora-winlist__row:hover {
+  padding-left: 1.25rem;
+}
+.solora-winlist__num {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s ease;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+.solora-winlist__row:hover .solora-winlist__num {
+  color: var(--solora-violet);
+}
+.solora-winlist__icon {
+  background: oklch(1 0 0 / 0.6);
+  color: var(--foreground);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease, color 0.4s ease, background 0.4s ease;
+}
+.solora-winlist__row:hover .solora-winlist__icon {
+  transform: rotate(-8deg) scale(1.05);
+  border-color: color-mix(in oklch, var(--solora-violet) 40%, var(--border));
+  color: var(--solora-violet);
+}
