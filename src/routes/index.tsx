@@ -7,6 +7,7 @@ import { QuickWinsTrack } from "@/components/QuickWinsTrack";
 import { Trophy, Star, MessageSquareQuote, CalendarCheck } from "lucide-react";
 
 import { ReviewsEditorial } from "@/components/ReviewsEditorial";
+import { ReviewsCards } from "@/components/ReviewsCards";
 
 export const Route = createFileRoute("/")({
   component: Index,
