@@ -108,6 +108,36 @@ function Index() {
           },
         ]}
       />
+
+      <ReviewsCards
+        clientName="Glow That Face Up"
+        reviews={[
+          {
+            author: "M.R.",
+            rating: 5,
+            date: "2 weeks ago",
+            text: "My skin is glowing! First-time facial ever and I am hooked. Vivian is an absolute pro.",
+          },
+          {
+            author: "S.K.",
+            rating: 5,
+            date: "1 month ago",
+            text: "Hawraa is the first person I ever trust with my face. She helped transform my face. The absolute best person to go for a facial.",
+          },
+          {
+            author: "J.L.",
+            rating: 5,
+            date: "1 month ago",
+            text: "Honestly the BEST facial experience I've ever had. From the moment I walked into Glow That Face Up, everything felt clean, calm, and super welcoming. Aaliyah was incredibly sweet and professional.",
+          },
+          {
+            author: "A.T.",
+            rating: 5,
+            date: "2 months ago",
+            text: "I absolutely love coming here. Dalia is extremely knowledgeable and truly takes the time to understand your skin before doing anything.",
+          },
+        ]}
+      />
     </article>
   );
 }
