@@ -274,17 +274,82 @@
 }
 
 /* ============ Solora QuickWins ============ */
-.solora-quickwin-number {
+.solora-quickwin {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: calc(var(--radius) + 2px);
+  border: 1px solid oklch(0.92 0.02 280 / 0.7);
+  background:
+    radial-gradient(120% 100% at 100% 0%, oklch(0.97 0.025 220 / 0.55), transparent 60%),
+    radial-gradient(120% 100% at 0% 100%, oklch(0.96 0.035 330 / 0.35), transparent 60%),
+    linear-gradient(160deg,
+      oklch(0.99 0.008 240) 0%,
+      oklch(0.985 0.014 290) 60%,
+      oklch(0.985 0.018 330) 100%
+    );
+  color: var(--solora-ink);
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+/* gloss sweep */
+.solora-quickwin::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 60%;
+  height: 200%;
+  pointer-events: none;
   background: linear-gradient(
-    135deg,
-    var(--solora-blue) 0%,
-    var(--solora-violet) 45%,
-    var(--solora-magenta) 100%
+    115deg,
+    transparent 0%,
+    color-mix(in oklch, var(--solora-cyan) 35%, transparent) 35%,
+    color-mix(in oklch, white 85%, transparent) 50%,
+    color-mix(in oklch, var(--solora-magenta) 35%, transparent) 65%,
+    transparent 100%
   );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-feature-settings: "tnum" 1, "lnum" 1;
+  filter: blur(16px);
+  transform: translateX(-180%) skewX(-18deg);
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  z-index: 0;
+}
+/* soft inner highlight */
+.solora-quickwin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.7);
+  z-index: 0;
+}
+.solora-quickwin > * {
+  position: relative;
+  z-index: 1;
+}
+.solora-quickwin:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklch, var(--solora-violet) 30%, oklch(0.92 0.03 280));
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--solora-violet) 14%, transparent),
+    0 18px 36px -22px color-mix(in oklch, var(--solora-violet) 35%, transparent),
+    0 8px 22px -16px color-mix(in oklch, var(--solora-cyan) 28%, transparent);
+}
+.solora-quickwin:hover::before {
+  transform: translateX(320%) skewX(-18deg);
+}
+.solora-quickwin__icon {
+  color: var(--solora-violet);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s ease;
+}
+.solora-quickwin:hover .solora-quickwin__icon {
+  transform: translateY(-1px) scale(1.08);
+  color: color-mix(in oklch, var(--solora-magenta) 60%, var(--solora-violet));
 }
 
 /* ============ Solora Review (editorial) ============ */
