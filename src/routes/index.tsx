@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Callout } from "@/components/Callout";
 import { QuickWins } from "@/components/QuickWins";
+import { QuickWinsList } from "@/components/QuickWinsList";
 import { Trophy, Star, MessageSquareQuote, CalendarCheck } from "lucide-react";
 
 import { ReviewsEditorial } from "@/components/ReviewsEditorial";
