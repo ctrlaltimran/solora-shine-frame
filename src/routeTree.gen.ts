@@ -10,33 +10,78 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesReputationBoosterRouteImport } from './routes/services.reputation-booster'
+import { Route as ServicesPatientReactivatorRouteImport } from './routes/services.patient-reactivator'
+import { Route as ServicesPatientMagnetRouteImport } from './routes/services.patient-magnet'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesReputationBoosterRoute =
+  ServicesReputationBoosterRouteImport.update({
+    id: '/services/reputation-booster',
+    path: '/services/reputation-booster',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesPatientReactivatorRoute =
+  ServicesPatientReactivatorRouteImport.update({
+    id: '/services/patient-reactivator',
+    path: '/services/patient-reactivator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesPatientMagnetRoute = ServicesPatientMagnetRouteImport.update({
+  id: '/services/patient-magnet',
+  path: '/services/patient-magnet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/services/patient-magnet': typeof ServicesPatientMagnetRoute
+  '/services/patient-reactivator': typeof ServicesPatientReactivatorRoute
+  '/services/reputation-booster': typeof ServicesReputationBoosterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/services/patient-magnet': typeof ServicesPatientMagnetRoute
+  '/services/patient-reactivator': typeof ServicesPatientReactivatorRoute
+  '/services/reputation-booster': typeof ServicesReputationBoosterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/services/patient-magnet': typeof ServicesPatientMagnetRoute
+  '/services/patient-reactivator': typeof ServicesPatientReactivatorRoute
+  '/services/reputation-booster': typeof ServicesReputationBoosterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/services/patient-magnet'
+    | '/services/patient-reactivator'
+    | '/services/reputation-booster'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/services/patient-magnet'
+    | '/services/patient-reactivator'
+    | '/services/reputation-booster'
+  id:
+    | '__root__'
+    | '/'
+    | '/services/patient-magnet'
+    | '/services/patient-reactivator'
+    | '/services/reputation-booster'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ServicesPatientMagnetRoute: typeof ServicesPatientMagnetRoute
+  ServicesPatientReactivatorRoute: typeof ServicesPatientReactivatorRoute
+  ServicesReputationBoosterRoute: typeof ServicesReputationBoosterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +93,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/reputation-booster': {
+      id: '/services/reputation-booster'
+      path: '/services/reputation-booster'
+      fullPath: '/services/reputation-booster'
+      preLoaderRoute: typeof ServicesReputationBoosterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/patient-reactivator': {
+      id: '/services/patient-reactivator'
+      path: '/services/patient-reactivator'
+      fullPath: '/services/patient-reactivator'
+      preLoaderRoute: typeof ServicesPatientReactivatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/patient-magnet': {
+      id: '/services/patient-magnet'
+      path: '/services/patient-magnet'
+      fullPath: '/services/patient-magnet'
+      preLoaderRoute: typeof ServicesPatientMagnetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ServicesPatientMagnetRoute: ServicesPatientMagnetRoute,
+  ServicesPatientReactivatorRoute: ServicesPatientReactivatorRoute,
+  ServicesReputationBoosterRoute: ServicesReputationBoosterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
