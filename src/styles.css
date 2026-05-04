@@ -1078,10 +1078,15 @@
 }
 
 @media (min-width: 768px) {
+  .solora-spatial {
+    width: min(96vw, 1280px);
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
   .solora-spatial__track {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.875rem;
+    gap: 1.25rem;
     padding: 1.25rem 0 1.75rem;
   }
 }
@@ -1127,9 +1132,10 @@
 }
 @media (min-width: 768px) {
   .solora-spatial__inner {
-    height: 400px;
-    padding: 1.15rem;
-    border-radius: 1.4rem;
+    height: auto;
+    aspect-ratio: 1 / 1.05;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
   }
 }
 .solora-spatial__title {
@@ -1266,7 +1272,7 @@
   pointer-events: none;
 }
 @media (min-width: 768px) {
-  .solora-spatial__ghost-num { font-size: 4.25rem; bottom: -8px; }
+  .solora-spatial__ghost-num { display: none; }
 }
 
 .solora-spatial__meta {

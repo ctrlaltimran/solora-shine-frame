@@ -114,14 +114,14 @@ function SpatialCard({ s }: { s: Service }) {
             <span className="text-[0.55rem] md:text-[0.6rem] uppercase tracking-[0.3em] font-medium text-foreground/55">
               {s.kicker}
             </span>
-            <span className="text-[0.55rem] md:text-[0.6rem] tabular-nums tracking-[0.2em] text-foreground/40">
+            <span className="md:hidden text-[0.55rem] tabular-nums tracking-[0.2em] text-foreground/40">
               S/{s.number}
             </span>
           </div>
-          <h3 className="solora-spatial__title text-xl md:text-[1.35rem] font-light tracking-tight text-foreground leading-[1.1]">
+          <h3 className="solora-spatial__title text-xl md:text-[1.5rem] font-light tracking-tight text-foreground leading-[1.1]">
             {s.name}
           </h3>
-          <p className="mt-2 text-[0.78rem] md:text-[0.8rem] text-foreground/65 font-light leading-relaxed">
+          <p className="mt-2 text-[0.78rem] md:text-[0.825rem] text-foreground/65 font-light leading-relaxed">
             {s.blurb}
           </p>
 
@@ -137,7 +137,7 @@ function SpatialCard({ s }: { s: Service }) {
 
 export function ServicesSpatial() {
   return (
-    <section className="my-12 md:my-16">
+    <section className="solora-spatial my-12 md:my-16">
       <div className="mb-6 md:mb-8">
         <p className="text-[0.62rem] uppercase tracking-[0.32em] text-muted-foreground font-medium mb-3">
           ⌖ Spatial / Services
