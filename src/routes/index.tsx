@@ -65,12 +65,7 @@ function Index() {
 
       {/* ============ Services ============ */}
       <SectionHeader title="Services Showcase" />
-      <ServicesShowcase />
-      <ServicesEditorial />
-      <ServicesDeck />
-      <ServicesSwitch />
       <ServicesSpatial />
-      <ServicesMagazine />
       <ServicesPlayful />
 
       {/* ============ Callouts ============ */}
