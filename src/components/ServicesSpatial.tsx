@@ -24,7 +24,7 @@ const services: Service[] = [
     kicker: "Acquisition",
     blurb: "Local ad campaigns engineered to fill your calendar with the right new patients.",
     icon: Magnet,
-    hue: "oklch(0.72 0.18 35)",
+    hue: "oklch(0.62 0.28 320)", // Solora magenta
     link: { to: "/services/patient-magnet" },
   },
   {
@@ -33,7 +33,7 @@ const services: Service[] = [
     kicker: "Trust",
     blurb: "An automated review engine that turns happy patients into proof for the next.",
     icon: Sparkles,
-    hue: "oklch(0.78 0.15 85)",
+    hue: "oklch(0.78 0.13 215)", // Solora cyan
     link: { to: "/services/reputation-booster" },
   },
   {
@@ -42,7 +42,7 @@ const services: Service[] = [
     kicker: "Retention",
     blurb: "Wake your dormant list with smart messaging that fills cancellations and quiet weeks.",
     icon: RotateCcw,
-    hue: "oklch(0.7 0.14 200)",
+    hue: "oklch(0.65 0.22 270)", // Solora blue/violet
     link: { to: "/services/patient-reactivator" },
   },
 ];
