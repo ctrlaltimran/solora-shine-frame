@@ -1078,10 +1078,15 @@
 }
 
 @media (min-width: 768px) {
+  .solora-spatial {
+    width: min(96vw, 1280px);
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
   .solora-spatial__track {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.875rem;
+    gap: 1.25rem;
     padding: 1.25rem 0 1.75rem;
   }
 }
