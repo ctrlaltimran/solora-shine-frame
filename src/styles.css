@@ -1453,3 +1453,190 @@
 .solora-term__card:hover .solora-term__arrow {
   transform: translateX(4px);
 }
+
+/* ============ ServicesMagazine ============ */
+.solora-mag__masthead { }
+.solora-mag__rule {
+  height: 1px;
+  background: color-mix(in oklab, var(--foreground) 18%, transparent);
+}
+
+.solora-mag__title {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 300;
+  font-size: clamp(2.25rem, 6vw, 4.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+.solora-mag__em {
+  font-style: italic;
+  font-weight: 400;
+  color: color-mix(in oklab, var(--foreground) 70%, oklch(0.55 0.12 25) 30%);
+}
+
+.solora-mag__grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 820px) {
+  .solora-mag__grid {
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+  }
+  .solora-mag__card[data-feature="true"] { grid-row: span 2; }
+}
+
+.solora-mag__card {
+  display: block;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  position: relative;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 500ms ease;
+  text-decoration: none;
+  color: inherit;
+}
+.solora-mag__card:hover {
+  transform: translateY(-3px);
+}
+
+.solora-mag__cardInner {
+  position: relative;
+  height: 100%;
+  min-height: 260px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  isolation: isolate;
+}
+@media (min-width: 820px) {
+  .solora-mag__card[data-feature="true"] .solora-mag__cardInner {
+    min-height: 540px;
+    padding: 2.25rem;
+  }
+}
+
+/* tones */
+.solora-mag__card[data-tone="noir"] {
+  background:
+    radial-gradient(120% 80% at 70% 0%, oklch(0.25 0.02 260) 0%, transparent 60%),
+    oklch(0.14 0.012 260);
+  color: oklch(0.94 0.02 80);
+  box-shadow: 0 25px 50px -25px oklch(0 0 0 / 0.55);
+}
+.solora-mag__card[data-tone="ivory"] {
+  background:
+    radial-gradient(120% 80% at 0% 100%, oklch(0.93 0.02 80) 0%, transparent 60%),
+    oklch(0.97 0.012 85);
+  color: oklch(0.22 0.015 60);
+  box-shadow: 0 25px 50px -30px oklch(0.5 0.05 60 / 0.35);
+  border: 1px solid color-mix(in oklab, oklch(0.22 0.015 60) 8%, transparent);
+}
+.solora-mag__card[data-tone="blush"] {
+  background:
+    radial-gradient(120% 80% at 100% 0%, oklch(0.85 0.06 25) 0%, transparent 60%),
+    oklch(0.82 0.07 22);
+  color: oklch(0.2 0.04 25);
+  box-shadow: 0 25px 50px -30px oklch(0.55 0.12 25 / 0.45);
+}
+
+/* art */
+.solora-mag__art-wrap {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  opacity: 0.55;
+  transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1), opacity 600ms ease;
+  z-index: 0;
+}
+.solora-mag__art {
+  width: 90%;
+  height: 90%;
+  max-width: 520px;
+}
+.solora-mag__card:hover .solora-mag__art-wrap {
+  transform: scale(1.05) rotate(-1deg);
+  opacity: 0.7;
+}
+
+.solora-mag__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.solora-mag__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.65;
+}
+.solora-mag__bullet { opacity: 0.6; }
+
+.solora-mag__name {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 300;
+  font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+}
+.solora-mag__card[data-feature="true"] .solora-mag__name {
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+}
+.solora-mag__dek {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+  opacity: 0.75;
+}
+
+.solora-mag__pull {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.55;
+  opacity: 0.7;
+  max-width: 28rem;
+  border-left: 1px solid currentColor;
+  padding-left: 0.85rem;
+  border-color: color-mix(in oklab, currentColor 25%, transparent);
+}
+
+.solora-mag__cta {
+  margin-top: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.solora-mag__ctaLine {
+  display: block;
+  height: 1px;
+  width: 28px;
+  background: currentColor;
+  opacity: 0.55;
+  transition: width 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.solora-mag__card:hover .solora-mag__ctaLine {
+  width: 56px;
+}
+.solora-mag__ctaLabel {
+  font-size: 0.66rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
