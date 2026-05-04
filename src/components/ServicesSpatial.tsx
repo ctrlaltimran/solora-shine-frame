@@ -140,7 +140,7 @@ export function ServicesSpatial() {
           ⌖ Spatial / Services
         </p>
         <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-          Three offerings, in&nbsp;orbit.
+          &#8203;
         </h2>
       </div>
 
