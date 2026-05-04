@@ -9,6 +9,7 @@ import { Trophy, Star, MessageSquareQuote, CalendarCheck } from "lucide-react";
 import { ReviewsEditorial } from "@/components/ReviewsEditorial";
 import { ReviewsCards } from "@/components/ReviewsCards";
 import { ServicesShowcase } from "@/components/ServicesShowcase";
+import { ServicesEditorial } from "@/components/ServicesEditorial";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -65,6 +66,7 @@ function Index() {
       {/* ============ Services ============ */}
       <SectionHeader title="Services Showcase" />
       <ServicesShowcase />
+      <ServicesEditorial />
 
       {/* ============ Callouts ============ */}
       <SectionHeader title="Call Out Options" />

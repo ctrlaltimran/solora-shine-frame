@@ -884,3 +884,40 @@
 .solora-service:hover .solora-service__arrow {
   transform: translate(2px, -2px);
 }
+
+/* ============= ServicesEditorial ============= */
+.solora-editorial__em {
+  background: linear-gradient(100deg, var(--foreground) 0%, color-mix(in oklab, var(--foreground) 55%, transparent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.solora-editorial__list {
+  border-top: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+}
+.solora-editorial__row {
+  border-bottom: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+  position: relative;
+  transition: padding 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.solora-editorial__row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    color-mix(in oklab, var(--foreground) 4%, transparent) 0%,
+    transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.solora-editorial__row:hover::before { opacity: 1; }
+.solora-editorial__arrow {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.solora-editorial__row:hover .solora-editorial__arrow {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+  transform: rotate(-45deg);
+}
