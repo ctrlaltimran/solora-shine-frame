@@ -1640,3 +1640,206 @@
   text-transform: uppercase;
   font-weight: 500;
 }
+
+/* ============ ServicesPlayful ============ */
+.solora-play__head {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.75rem;
+}
+.solora-play__sticker {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transform: rotate(calc(var(--rot, 0) * 1deg));
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.solora-play__sticker[data-rot="-6"] { --rot: -6; }
+.solora-play__sticker[data-rot="5"] { --rot: 5; }
+.solora-play__sticker:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.solora-play__title {
+  font-size: clamp(1.85rem, 4.5vw, 3rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  line-height: 1;
+}
+.solora-play__wiggle {
+  display: inline-block;
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(135deg, oklch(0.7 0.18 35), oklch(0.78 0.14 320));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: soloraWiggle 3.5s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+@keyframes soloraWiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.solora-play__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.solora-play__row {
+  position: relative;
+  display: block;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: color-mix(in oklab, var(--bg) 92%, var(--background) 8%);
+  color: var(--fg);
+  border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+  transition:
+    transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 300ms ease,
+    filter 300ms ease,
+    box-shadow 400ms ease;
+  text-decoration: none;
+  isolation: isolate;
+}
+.solora-play__row[data-dim="true"] {
+  opacity: 0.55;
+  filter: saturate(0.7);
+  transform: scale(0.985);
+}
+.solora-play__row[data-active="true"] {
+  transform: translateY(-3px) rotate(-0.4deg);
+  box-shadow:
+    0 22px 50px -22px color-mix(in oklab, var(--bg) 75%, transparent),
+    0 6px 16px -8px color-mix(in oklab, var(--fg) 30%, transparent);
+}
+
+.solora-play__rowInner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem 1.1rem;
+  padding: 1.1rem 1.2rem;
+}
+@media (min-width: 768px) {
+  .solora-play__rowInner {
+    grid-template-columns: auto auto 1.1fr 1fr auto;
+    padding: 1.4rem 1.75rem;
+    gap: 1.5rem;
+  }
+}
+
+.solora-play__num {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.5;
+}
+
+.solora-play__emoji {
+  display: grid;
+  place-items: center;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--fg) 8%, transparent);
+  font-size: 1.4rem;
+  transition: transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.solora-play__row[data-active="true"] .solora-play__emoji {
+  transform: rotate(-12deg) scale(1.15);
+}
+
+.solora-play__name {
+  font-size: clamp(1.15rem, 2.6vw, 1.65rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+}
+
+.solora-play__promise {
+  display: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.75;
+}
+@media (min-width: 768px) {
+  .solora-play__promise { display: inline; }
+}
+
+.solora-play__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: gap 300ms ease, transform 300ms ease;
+}
+.solora-play__pillArrow { transition: transform 300ms ease; }
+.solora-play__row[data-active="true"] .solora-play__pill {
+  gap: 0.6rem;
+}
+.solora-play__row[data-active="true"] .solora-play__pillArrow {
+  transform: translateX(2px);
+}
+
+/* Marquee — hidden by default, slides up on hover */
+.solora-play__marquee {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8%);
+  transition: opacity 350ms ease, transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+.solora-play__row[data-active="true"] .solora-play__marquee {
+  opacity: 0.16;
+  transform: translateY(0);
+}
+.solora-play__marqueeTrack {
+  display: flex;
+  gap: 2rem;
+  white-space: nowrap;
+  animation: soloraMarquee 22s linear infinite;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+.solora-play__word {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+  font-style: italic;
+}
+@keyframes soloraMarquee {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .solora-play__marqueeTrack { animation: none; }
+  .solora-play__wiggle { animation: none; }
+}
