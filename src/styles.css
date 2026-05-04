@@ -1076,21 +1076,14 @@
   padding: 0.5rem 0 1rem;
   perspective: 1400px;
 }
-.solora-spatial__track::-webkit-scrollbar { display: none; }
-.solora-spatial__pad { display: none; }
 
 @media (min-width: 768px) {
   .solora-spatial__track {
-    flex-direction: row;
-    gap: 1.25rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 0.25rem;
-    padding: 1.5rem 0.25rem 2rem;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.875rem;
+    padding: 1.25rem 0 1.75rem;
   }
-  .solora-spatial__pad { display: block; flex: 0 0 1px; }
 }
 
 .solora-spatial__card {
@@ -1098,18 +1091,16 @@
   display: block;
   transform-style: preserve-3d;
   transform: perspective(1400px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
-}
-@media (min-width: 768px) {
-  .solora-spatial__card {
-    flex: 0 0 360px;
-    width: auto;
-    max-width: 360px;
-    scroll-snap-align: center;
-  }
+  outline: none;
+  border-radius: 1.75rem;
 }
 .solora-spatial__card:hover { z-index: 2; }
+.solora-spatial__card:focus-visible .solora-spatial__inner {
+  outline: 2px solid color-mix(in oklab, var(--hue) 70%, white);
+  outline-offset: 4px;
+}
 
 .solora-spatial__inner {
   position: relative;
@@ -1123,15 +1114,29 @@
     linear-gradient(180deg,
       color-mix(in oklab, var(--card) 92%, var(--hue) 8%) 0%,
       var(--card) 70%);
-  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--border) 55%, color-mix(in oklab, var(--hue) 35%, transparent));
   box-shadow:
     0 1px 0 color-mix(in oklab, white 60%, transparent) inset,
-    0 30px 60px -30px color-mix(in oklab, var(--hue) 40%, transparent),
+    0 30px 60px -30px color-mix(in oklab, var(--hue) 45%, transparent),
     0 12px 30px -18px color-mix(in oklab, var(--foreground) 35%, transparent);
   overflow: hidden;
   transform-style: preserve-3d;
   display: flex;
   flex-direction: column;
+  transition: border-color 300ms ease, box-shadow 300ms ease;
+}
+@media (min-width: 768px) {
+  .solora-spatial__inner {
+    height: 400px;
+    padding: 1.15rem;
+    border-radius: 1.4rem;
+  }
+}
+.solora-spatial__title {
+  transition: color 300ms ease;
+}
+.solora-spatial__card:hover .solora-spatial__title {
+  color: color-mix(in oklab, var(--foreground) 80%, var(--hue) 20%);
 }
 
 .solora-spatial__glare {
