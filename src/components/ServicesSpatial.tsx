@@ -137,7 +137,7 @@ function SpatialCard({ s }: { s: Service }) {
 
 export function ServicesSpatial() {
   return (
-    <section className="my-12 md:my-16">
+    <section className="solora-spatial my-12 md:my-16">
       <div className="mb-6 md:mb-8">
         <p className="text-[0.62rem] uppercase tracking-[0.32em] text-muted-foreground font-medium mb-3">
           ⌖ Spatial / Services
