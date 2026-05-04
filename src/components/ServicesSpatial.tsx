@@ -104,18 +104,15 @@ function SpatialCard({ s }: { s: Service }) {
           <span className="solora-spatial__icon">
             <Icon className="h-6 w-6 md:h-7 md:w-7" strokeWidth={1.5} />
           </span>
-          <span className="solora-spatial__ghost-num" aria-hidden>
+          <span className="solora-spatial__ghost-num md:hidden" aria-hidden>
             {s.number}
           </span>
         </div>
 
         <div className="solora-spatial__meta">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center mb-2">
             <span className="text-[0.55rem] md:text-[0.6rem] uppercase tracking-[0.3em] font-medium text-foreground/55">
               {s.kicker}
-            </span>
-            <span className="text-[0.55rem] md:text-[0.6rem] tabular-nums tracking-[0.2em] text-foreground/40">
-              S/{s.number}
             </span>
           </div>
           <h3 className="solora-spatial__title text-xl md:text-[1.5rem] font-light tracking-tight text-foreground leading-[1.1]">

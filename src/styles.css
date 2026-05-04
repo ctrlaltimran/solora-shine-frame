@@ -1181,7 +1181,7 @@
   transform: translateZ(40px);
 }
 @media (min-width: 768px) {
-  .solora-spatial__stage { height: 150px; }
+  .solora-spatial__stage { height: auto; flex: 1; min-height: 0; }
 }
 .solora-spatial__halo {
   position: absolute;
