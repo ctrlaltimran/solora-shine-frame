@@ -6,6 +6,8 @@ import { QuickWinsBento } from "@/components/QuickWinsBento";
 import { QuickWinsTrack } from "@/components/QuickWinsTrack";
 import { Trophy, Star, MessageSquareQuote, CalendarCheck } from "lucide-react";
 
+import { ReviewsEditorial } from "@/components/ReviewsEditorial";
+import { ReviewsCards } from "@/components/ReviewsCards";
 import { ServicesSpatial } from "@/components/ServicesSpatial";
 import { ServicesPlayful } from "@/components/ServicesPlayful";
 
