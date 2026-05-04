@@ -135,14 +135,6 @@ function SpatialCard({ s }: { s: Service }) {
 export function ServicesSpatial() {
   return (
     <section className="solora-spatial my-12 md:my-16">
-      <div className="mb-6 md:mb-8">
-        <p className="text-[0.62rem] uppercase tracking-[0.32em] text-muted-foreground font-medium mb-3">
-          ⌖ Spatial / Services
-        </p>
-        <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-          &#8203;
-        </h2>
-      </div>
 
       <div className="solora-spatial__track">
         {services.map((s) => (
