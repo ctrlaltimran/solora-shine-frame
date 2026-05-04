@@ -12,6 +12,7 @@ import { ServicesShowcase } from "@/components/ServicesShowcase";
 import { ServicesEditorial } from "@/components/ServicesEditorial";
 import { ServicesDeck } from "@/components/ServicesDeck";
 import { ServicesSwitch } from "@/components/ServicesSwitch";
+import { ServicesSpatial } from "@/components/ServicesSpatial";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -71,6 +72,7 @@ function Index() {
       <ServicesEditorial />
       <ServicesDeck />
       <ServicesSwitch />
+      <ServicesSpatial />
 
       {/* ============ Callouts ============ */}
       <SectionHeader title="Call Out Options" />
