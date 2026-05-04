@@ -1132,9 +1132,10 @@
 }
 @media (min-width: 768px) {
   .solora-spatial__inner {
-    height: 400px;
-    padding: 1.15rem;
-    border-radius: 1.4rem;
+    height: auto;
+    aspect-ratio: 1 / 1.05;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
   }
 }
 .solora-spatial__title {
