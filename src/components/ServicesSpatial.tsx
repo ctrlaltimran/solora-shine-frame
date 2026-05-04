@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useRef, useState, type CSSProperties, type MouseEvent } from "react";
-import { Magnet, Sparkles, RotateCcw, ArrowUpRight, type LucideIcon } from "lucide-react";
+import { Magnet, Sparkles, BellRing, ArrowUpRight, type LucideIcon } from "lucide-react";
 
 type ServiceLink =
   | { to: "/services/patient-magnet" }
@@ -12,8 +12,9 @@ interface Service {
   name: string;
   kicker: string;
   blurb: string;
+  cta: string;
   icon: LucideIcon;
-  hue: string; // accent color via oklch
+  hue: string;
   link: ServiceLink;
 }
 
@@ -23,8 +24,9 @@ const services: Service[] = [
     name: "Patient Magnet",
     kicker: "Acquisition",
     blurb: "Local ad campaigns engineered to fill your calendar with the right new patients.",
+    cta: "Boost my ranking",
     icon: Magnet,
-    hue: "oklch(0.62 0.28 320)", // Solora magenta
+    hue: "oklch(0.62 0.28 320)",
     link: { to: "/services/patient-magnet" },
   },
   {
@@ -32,8 +34,9 @@ const services: Service[] = [
     name: "Reputation Booster",
     kicker: "Trust",
     blurb: "An automated review engine that turns happy patients into proof for the next.",
+    cta: "Get me reviews",
     icon: Sparkles,
-    hue: "oklch(0.78 0.13 215)", // Solora cyan
+    hue: "oklch(0.78 0.13 215)",
     link: { to: "/services/reputation-booster" },
   },
   {
@@ -41,8 +44,9 @@ const services: Service[] = [
     name: "Patient Re-Activator",
     kicker: "Retention",
     blurb: "Wake your dormant list with smart messaging that fills cancellations and quiet weeks.",
-    icon: RotateCcw,
-    hue: "oklch(0.65 0.22 270)", // Solora blue/violet
+    cta: "Fill my calendar",
+    icon: BellRing,
+    hue: "oklch(0.65 0.22 270)",
     link: { to: "/services/patient-reactivator" },
   },
 ];
@@ -90,18 +94,15 @@ function SpatialCard({ s }: { s: Service }) {
       }
     >
       <div className="solora-spatial__inner">
-        {/* glare */}
         <div className="solora-spatial__glare" aria-hidden />
-        {/* grid floor */}
         <div className="solora-spatial__grid" aria-hidden />
 
-        {/* Layered icon stack — back glow, mid ring, front icon */}
         <div className="solora-spatial__stage" data-hover={hover}>
           <span className="solora-spatial__halo" aria-hidden />
           <span className="solora-spatial__ring" aria-hidden />
           <span className="solora-spatial__ring solora-spatial__ring--2" aria-hidden />
           <span className="solora-spatial__icon">
-            <Icon className="h-7 w-7 md:h-8 md:w-8" strokeWidth={1.5} />
+            <Icon className="h-6 w-6 md:h-7 md:w-7" strokeWidth={1.5} />
           </span>
           <span className="solora-spatial__ghost-num" aria-hidden>
             {s.number}
@@ -109,24 +110,24 @@ function SpatialCard({ s }: { s: Service }) {
         </div>
 
         <div className="solora-spatial__meta">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-[0.6rem] uppercase tracking-[0.3em] font-medium text-foreground/55">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[0.55rem] md:text-[0.6rem] uppercase tracking-[0.3em] font-medium text-foreground/55">
               {s.kicker}
             </span>
-            <span className="text-[0.6rem] tabular-nums tracking-[0.2em] text-foreground/40">
+            <span className="text-[0.55rem] md:text-[0.6rem] tabular-nums tracking-[0.2em] text-foreground/40">
               S/{s.number}
             </span>
           </div>
-          <h3 className="text-2xl md:text-3xl font-light tracking-tight text-foreground leading-[1.05]">
+          <h3 className="solora-spatial__title text-xl md:text-[1.35rem] font-light tracking-tight text-foreground leading-[1.1]">
             {s.name}
           </h3>
-          <p className="mt-3 text-sm text-foreground/65 font-light leading-relaxed">
+          <p className="mt-2 text-[0.78rem] md:text-[0.8rem] text-foreground/65 font-light leading-relaxed">
             {s.blurb}
           </p>
 
-          <div className="solora-spatial__cta mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] font-medium text-foreground/85">
-            <span>Explore service</span>
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" strokeWidth={2} />
+          <div className="solora-spatial__cta mt-4 inline-flex items-center gap-2 text-[0.65rem] md:text-[0.7rem] uppercase tracking-[0.22em] font-medium">
+            <span>{s.cta}</span>
+            <ArrowUpRight className="solora-spatial__cta-arrow h-4 w-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" strokeWidth={2} />
           </div>
         </div>
       </div>
@@ -135,54 +136,22 @@ function SpatialCard({ s }: { s: Service }) {
 }
 
 export function ServicesSpatial() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  function nudge(dir: 1 | -1) {
-    const el = trackRef.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>(".solora-spatial__card");
-    const w = card ? card.offsetWidth + 24 : 320;
-    el.scrollBy({ left: dir * w, behavior: "smooth" });
-  }
-
   return (
     <section className="my-12 md:my-16">
-      <div className="flex items-end justify-between gap-6 mb-6 md:mb-8">
-        <div>
-          <p className="text-[0.62rem] uppercase tracking-[0.32em] text-muted-foreground font-medium mb-3">
-            ⌖ Spatial / Services
-          </p>
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-            Three offerings, in&nbsp;orbit.
-          </h2>
-        </div>
-        <div className="hidden md:flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => nudge(-1)}
-            aria-label="Previous"
-            className="solora-spatial__nav h-10 w-10 rounded-full grid place-items-center"
-          >
-            ←
-          </button>
-          <button
-            type="button"
-            onClick={() => nudge(1)}
-            aria-label="Next"
-            className="solora-spatial__nav h-10 w-10 rounded-full grid place-items-center"
-          >
-            →
-          </button>
-        </div>
+      <div className="mb-6 md:mb-8">
+        <p className="text-[0.62rem] uppercase tracking-[0.32em] text-muted-foreground font-medium mb-3">
+          ⌖ Spatial / Services
+        </p>
+        <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+          Three offerings, in&nbsp;orbit.
+        </h2>
       </div>
 
-      <div ref={trackRef} className="solora-spatial__track">
+      <div className="solora-spatial__track">
         {services.map((s) => (
           <SpatialCard key={s.number} s={s} />
         ))}
-        <div className="solora-spatial__pad" aria-hidden />
       </div>
-
     </section>
   );
 }
