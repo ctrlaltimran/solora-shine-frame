@@ -1265,3 +1265,191 @@
   .solora-spatial__ring--2 { animation: none; }
   .solora-spatial__card { transition: none; transform: none !important; }
 }
+
+/* ============ ServicesTerminal ============ */
+.solora-term {
+  --term-bg: oklch(0.16 0.01 260);
+  --term-fg: oklch(0.92 0.02 150);
+  --term-dim: oklch(0.65 0.02 150);
+  --term-accent: oklch(0.78 0.18 145);
+  --term-accent-2: oklch(0.78 0.16 60);
+  --term-border: oklch(0.28 0.01 260);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--term-bg);
+  color: var(--term-fg);
+  border: 1px solid var(--term-border);
+  box-shadow:
+    0 30px 60px -30px oklch(0 0 0 / 0.5),
+    0 1px 0 oklch(1 0 0 / 0.05) inset;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.solora-term__chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.9rem;
+  background: oklch(0.2 0.01 260);
+  border-bottom: 1px solid var(--term-border);
+}
+.solora-term__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.solora-term__dot[data-c="r"] { background: oklch(0.7 0.2 25); }
+.solora-term__dot[data-c="y"] { background: oklch(0.82 0.16 90); }
+.solora-term__dot[data-c="g"] { background: oklch(0.78 0.18 145); }
+.solora-term__title {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--term-dim);
+}
+.solora-term__time {
+  font-size: 11px;
+  color: var(--term-dim);
+  letter-spacing: 0.05em;
+}
+
+.solora-term__body {
+  padding: 1.25rem 1rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .solora-term__body { padding: 1.5rem 1.5rem 1.75rem; }
+}
+
+.solora-term__line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.solora-term__prompt { color: var(--term-accent); }
+.solora-term__path { color: var(--term-accent-2); }
+
+.solora-term__ascii {
+  color: var(--term-dim);
+  font-size: 11px;
+  line-height: 1.4;
+  margin: 0.25rem 0 1.25rem;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.solora-term__grid {
+  display: grid;
+  gap: 0.85rem;
+}
+@media (min-width: 900px) {
+  .solora-term__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.solora-term__card {
+  display: block;
+  padding: 1rem;
+  border-radius: 0.65rem;
+  background: oklch(0.19 0.01 260);
+  border: 1px solid var(--term-border);
+  position: relative;
+  transition: border-color 200ms ease, transform 200ms ease, background 200ms ease;
+  color: var(--term-fg);
+}
+.solora-term__card:hover {
+  border-color: color-mix(in oklab, var(--term-accent) 60%, transparent);
+  background: oklch(0.21 0.015 260);
+  transform: translateY(-2px);
+}
+.solora-term__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, oklch(1 0 0 / 0.03), transparent 30%);
+}
+
+.solora-term__cardHead {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--term-dim);
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+.solora-term__id { color: var(--term-accent-2); }
+.solora-term__module { color: var(--term-dim); }
+.solora-term__status {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--term-accent);
+}
+.solora-term__pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--term-accent);
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--term-accent) 60%, transparent);
+  animation: soloraTermPulse 1.8s ease-out infinite;
+}
+@keyframes soloraTermPulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--term-accent) 60%, transparent); }
+  70% { box-shadow: 0 0 0 8px color-mix(in oklab, var(--term-accent) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--term-accent) 0%, transparent); }
+}
+
+.solora-term__name {
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.85rem;
+  color: var(--term-fg);
+}
+
+.solora-term__metrics {
+  list-style: none;
+  margin: 0 0 0.85rem;
+  padding: 0.65rem 0;
+  border-top: 1px dashed var(--term-border);
+  border-bottom: 1px dashed var(--term-border);
+  font-size: 11.5px;
+  display: grid;
+  gap: 0.25rem;
+}
+.solora-term__metrics li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.solora-term__k { color: var(--term-dim); white-space: pre; }
+.solora-term__v { color: var(--term-fg); }
+
+.solora-term__log {
+  font-size: 11px;
+  color: var(--term-dim);
+  margin-bottom: 1rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.solora-term__cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--term-accent);
+}
+.solora-term__arrow {
+  transition: transform 250ms ease;
+}
+.solora-term__card:hover .solora-term__arrow {
+  transform: translateX(4px);
+}
