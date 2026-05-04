@@ -114,7 +114,7 @@ function SpatialCard({ s }: { s: Service }) {
             <span className="text-[0.55rem] md:text-[0.6rem] uppercase tracking-[0.3em] font-medium text-foreground/55">
               {s.kicker}
             </span>
-            <span className="md:hidden text-[0.55rem] tabular-nums tracking-[0.2em] text-foreground/40">
+            <span className="text-[0.55rem] md:text-[0.6rem] tabular-nums tracking-[0.2em] text-foreground/40">
               S/{s.number}
             </span>
           </div>
