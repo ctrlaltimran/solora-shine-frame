@@ -183,9 +183,6 @@ export function ServicesSpatial() {
         <div className="solora-spatial__pad" aria-hidden />
       </div>
 
-      <p className="md:hidden mt-4 text-[0.62rem] uppercase tracking-[0.28em] text-muted-foreground/70 font-medium">
-        Swipe →
-      </p>
     </section>
   );
 }

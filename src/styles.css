@@ -1071,22 +1071,30 @@
 /* ============ ServicesSpatial ============ */
 .solora-spatial__track {
   display: flex;
-  gap: 1.25rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: 0.25rem;
-  padding: 1.5rem 0.25rem 2rem;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem 0 1rem;
   perspective: 1400px;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
 }
 .solora-spatial__track::-webkit-scrollbar { display: none; }
-.solora-spatial__pad { flex: 0 0 1px; }
+.solora-spatial__pad { display: none; }
+
+@media (min-width: 768px) {
+  .solora-spatial__track {
+    flex-direction: row;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0.25rem;
+    padding: 1.5rem 0.25rem 2rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .solora-spatial__pad { display: block; flex: 0 0 1px; }
+}
 
 .solora-spatial__card {
-  flex: 0 0 82%;
-  max-width: 360px;
-  scroll-snap-align: center;
+  width: 100%;
   display: block;
   transform-style: preserve-3d;
   transform: perspective(1400px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
@@ -1094,7 +1102,12 @@
   will-change: transform;
 }
 @media (min-width: 768px) {
-  .solora-spatial__card { flex: 0 0 360px; }
+  .solora-spatial__card {
+    flex: 0 0 360px;
+    width: auto;
+    max-width: 360px;
+    scroll-snap-align: center;
+  }
 }
 .solora-spatial__card:hover { z-index: 2; }
 
