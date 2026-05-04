@@ -10,6 +10,7 @@ import { ReviewsEditorial } from "@/components/ReviewsEditorial";
 import { ReviewsCards } from "@/components/ReviewsCards";
 import { ServicesShowcase } from "@/components/ServicesShowcase";
 import { ServicesEditorial } from "@/components/ServicesEditorial";
+import { ServicesDeck } from "@/components/ServicesDeck";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -67,6 +68,7 @@ function Index() {
       <SectionHeader title="Services Showcase" />
       <ServicesShowcase />
       <ServicesEditorial />
+      <ServicesDeck />
 
       {/* ============ Callouts ============ */}
       <SectionHeader title="Call Out Options" />
